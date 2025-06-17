@@ -1,0 +1,606 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/*
+    Created on : Jun 11, 2025, 1:32:36 AM
+    Author     : User
+*/
+/* src/main/webapp/css/style.css */
+
+/* === GLOBAL STYLES === */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures footer sticks to the bottom */
+}
+
+a {
+    color: #007bff; /* Changed from green for consistency with primary buttons */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3; /* Darker blue on hover */
+    text-decoration: underline;
+}
+
+p {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* === HEADER === */
+.main-header { /* Use .main-header as per header.jsp */
+    background-color: #343a40;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.main-header .header-container { /* Added for better layout within the header */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px; /* Max width for content inside header */
+    margin: 0 auto;
+}
+
+.main-header .logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 1em; /* This is the property controlling the size */
+    font-weight: bold;
+}
+
+.main-header h1 { /* If you still have h1 inside the header, adjust */
+    margin: 0;
+    padding: 0;
+    font-size: 2em;
+}
+
+.main-header nav { /* Changed from .header nav, .header-nav */
+    margin-top: 0; /* Adjust as per flexbox layout */
+}
+
+.main-header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* For horizontal navigation */
+    flex-wrap: wrap; /* Allow nav items to wrap on small screens */
+    justify-content: center; /* Center nav items when wrapped */
+}
+
+.main-header nav li {
+    margin-left: 15px; /* Spacing between nav items */
+    margin-bottom: 5px; /* For wrapped items */
+}
+
+.main-header nav a { /* Changed from .header nav a, .header-nav a */
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px; /* Adjusted padding for better fit */
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: flex; /* For icon alignment */
+    align-items: center;
+    gap: 5px; /* Space between icon and text */
+}
+
+.main-header nav a:hover { /* Changed from .header nav a:hover, .header-nav a:hover */
+    background-color: #45a049;
+    color: #fff; /* Keep text white on hover */
+}
+
+/* Style for the "Welcome, User!" text within a nav li */
+.main-header nav li:first-child:not(:has(a)) {
+    color: #fff;
+    padding: 8px 12px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+/* === CONTAINER === */
+.container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px; /* Increased max-width for better content layout */
+    margin: 50px auto;
+    flex-grow: 1; /* Allows container to grow and push footer down */
+}
+
+/* === FORM === */
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group input[type="email"],
+.form-group textarea, /* Added textarea */
+.form-group select /* Added select */ {
+    width: calc(100% - 22px); /* Adjust for padding and border */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.form-group textarea {
+    resize: vertical; /* Allow vertical resizing for textareas */
+    min-height: 80px;
+}
+
+.radio-inline {
+    display: inline-block; /* This property makes them go side-by-side */
+    margin-right: 20px;
+    font-weight: normal;
+}
+
+/* General button styles for consistency */
+.button {
+    display: inline-flex; /* Use flexbox for content inside button (e.g., icon + text) */
+    align-items: center; /* Vertically align icon and text */
+    justify-content: center; /* Horizontally center text/icon within the button */
+    padding: 12px 25px; /* Adjusted padding for a larger button feel */
+    border-radius: 8px; /* Slightly more rounded corners */
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    border: none; /* Remove default button border */
+    font-size: 1.1em; /* Make text slightly larger */
+    min-width: 150px; /* Ensure a minimum width for consistency, adjust as needed */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    text-align: center; /* Ensure text is centered within the button */
+}
+
+.button-primary,
+button[type="submit"] { /* Apply primary button styles to submit buttons */
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+    width: 100%; /* For form submit buttons */
+}
+
+.button-primary:hover,
+button[type="submit"]:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+    transform: translateY(-2px); /* Slight lift effect on hover */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* Enhanced shadow on hover */
+}
+
+.button-secondary {
+    background-color: #6c757d;
+    color: white;
+    border-color: #6c757d;
+}
+
+.button-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.button-success {
+    background-color: #28a745;
+    color: white;
+    border-color: #28a745;
+}
+
+.button-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.button-danger {
+    background-color: #dc3545;
+    color: white;
+    border-color: #dc3545;
+}
+
+.button-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.button-info { /* New style for info buttons (e.g., dashboard links) */
+    background-color: #17a2b8;
+    color: white;
+    border-color: #17a2b8;
+}
+
+.button-info:hover {
+    background-color: #138496;
+    border-color: #117a8b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Ensure icons scale well and have spacing */
+.button i {
+    margin-right: 8px; /* Space between icon and text */
+}
+.fa-lg { font-size: 1.33333em; line-height: 0.75em; vertical-align: -0.0667em; }
+.fa-2x { font-size: 2em; }
+
+
+/* === SPECIFIC STYLES FOR LOGIN AND REGISTER BUTTONS === */
+/* These styles are intended to be applied via classes in your HTML/JSP.
+   For example: <button class="button login-button">Login</button>
+   Or: <a href="register.jsp" class="button register-button">Register</a>
+*/
+.login-button {
+    background-color: #007bff; /* Blue */
+    color: white;
+    /* Inherits general .button styles, you can override here if needed */
+}
+
+.login-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.register-button {
+    background-color: #28a745; /* Green */
+    color: white;
+    /* Inherits general .button styles, you can override here if needed */
+}
+
+.register-button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+/* If your login/register buttons are actually <input type="submit">,
+   and you want to target them specifically without adding a class,
+   you might try this (less recommended than adding a class):
+*/
+.login-form input[type="submit"] { /* Example: if your login form has class="login-form" */
+    background-color: #007bff;
+    color: white;
+    /* etc. */
+}
+
+/* === MESSAGES === */
+.error-message,
+.message.error { /* Combined and specified for error message */
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.success-message,
+.message.success { /* Combined and specified for success message */
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.message { /* General message style */
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* === TABLES (admin, results) === */
+.data-table { /* Changed from generic 'table' to specific class for better control */
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Added shadow for tables */
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden; /* Ensures rounded corners on content */
+}
+
+.data-table thead th {
+    background-color: #007bff; /* Primary color for table headers */
+    color: white;
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.data-table tbody td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #eee;
+    color: #333;
+}
+
+.data-table tbody tr:nth-child(even) {
+    background-color: #f8fafd; /* Light blue tint for even rows */
+}
+
+.data-table tbody tr:hover {
+    background-color: #e2f2ff; /* Lighter blue on hover */
+    transform: translateY(-1px); /* Subtle lift */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Highlight on hover */
+}
+
+
+/* New/Modified styles for table actions */
+.data-table thead th:last-child,
+.data-table tbody td.actions {
+    width: 130px; /* Adjusted width for the actions column */
+    min-width: 130px; /* Ensures minimum width */
+    text-align: center; /* Center the buttons within the column */
+}
+
+.data-table .actions {
+    white-space: nowrap; /* Prevent buttons from wrapping */
+    display: flex; /* Use flexbox to align buttons side-by-side */
+    justify-content: center; /* Center buttons horizontally within the actions cell */
+    align-items: center;
+}
+
+.data-table .actions .button { /* Smaller buttons within table actions */
+    margin-right: 5px; /* Spacing between action buttons */
+    padding: 4px 10px; /* Reduced padding for smaller buttons */
+    font-size: 0.8em; /* Reduced font size */
+    display: inline-flex;
+    align-items: center;
+    gap: 4px; /* Reduced space between icon and text */
+    min-width: unset; /* Remove min-width for smaller context */
+    box-shadow: none; /* Remove shadow for smaller buttons */
+    transform: none; /* Remove transform on hover for these specific buttons */
+}
+/* If there's a last button in a group, remove its right margin */
+.data-table .actions .button:last-child {
+    margin-right: 0;
+}
+
+
+/* Responsive Table */
+.table-responsive {
+    overflow-x: auto; /* Makes table scrollable on small screens */
+    margin-bottom: 20px;
+}
+
+/* === Dashboard Specific Styles (for dashboard.jsp) === */
+.dashboard-container {
+    padding: 30px;
+    text-align: center; /* Center content within the dashboard container */
+}
+
+.welcome-message {
+    font-size: 2.2em;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.dashboard-links {
+    display: flex; /* Use flexbox for layout */
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    justify-content: center; /* Center items horizontally */
+    gap: 25px; /* Space between cards */
+    margin-top: 40px;
+}
+
+.dashboard-links .card {
+    background-color: #f8f9fa; /* Light background for cards */
+    border: 1px solid #e2e6ea;
+    border-radius: 10px;
+    padding: 25px;
+    width: 100%;
+    max-width: 300px; /* Max width for individual cards */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08); /* More prominent shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    display: flex; /* Use flexbox for card content */
+    flex-direction: column;
+    justify-content: space-between; /* Push button to bottom */
+}
+
+.dashboard-links .card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15); /* Stronger shadow on hover */
+}
+
+.dashboard-links .card h3 {
+    font-size: 1.5em;
+    color: #007bff;
+    margin-top: 0;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center icon and text */
+    gap: 10px;
+}
+
+.dashboard-links .card p {
+    font-size: 0.95em;
+    color: #666;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Allow paragraph to take up space */
+    text-align: center;
+}
+
+.dashboard-links .card .button {
+    width: auto; /* Allow button to size based on content */
+    margin: 0 auto; /* Center button within the card */
+    font-size: 1em;
+    padding: 10px 20px;
+    min-width: unset; /* Override general button min-width */
+}
+
+/* Admin specific card styling */
+.dashboard-links .admin-card {
+    background-color: #e6f7ff; /* Lighter blue background for admin cards */
+    border-color: #92d6ff;
+}
+
+.dashboard-links .admin-card h3 {
+    color: #0056b3; /* Darker blue for admin card heading */
+}
+
+
+/* === Quiz Specific Styles (for quizPage.jsp) === */
+.quiz-form {
+    max-width: 800px;
+    margin: 30px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.question-block {
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.question-block h3 {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.options-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.options-list li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    transition: background-color 0.2s ease;
+}
+
+.options-list li:hover {
+    background-color: #f0f0f0;
+}
+
+.options-list input[type="radio"] {
+    margin-right: 10px;
+    transform: scale(1.2); /* Make radio buttons slightly larger */
+}
+
+.options-list label {
+    cursor: pointer;
+    font-size: 1.1em;
+    flex-grow: 1; /* Make label take up available space */
+}
+
+/* Quiz Result Page Styles (for quizResult.jsp) === */
+.result-summary {
+    text-align: center;
+    background-color: #e6ffe6; /* Light green background */
+    border: 1px solid #a4e6a4;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.result-summary h3 {
+    color: #28a745; /* Green color for score */
+    font-size: 2.2em;
+    margin-bottom: 10px;
+}
+
+.result-summary p {
+    font-size: 1.1em;
+    color: #555;
+    margin-top: 0;
+}
+
+.quiz-review {
+    margin-top: 30px;
+}
+
+.quiz-review .question-block {
+    background-color: #fff; /* Override to white for review blocks */
+    border: 1px solid #ccc;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.quiz-review .options-list li {
+    position: relative; /* For positioning checkmark/cross */
+}
+
+.correct-answer {
+    background-color: #d4edda; /* Light green for correct option */
+    border-color: #28a745;
+    font-weight: bold;
+    color: #155724;
+}
+
+.user-selected {
+    font-weight: bold;
+    color: #007bff; /* Blue for user's selected answer */
+    margin-left: 8px;
+    @import "style.css";
+}
+
+/* === FOOTER === */
+.main-footer {
+    background-color: #343a40; /* Same as header */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto; /* Pushes footer to the bottom */
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}
+
+.footer-container p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    color: #bbb;
+}
