@@ -20,12 +20,10 @@ public class DBConnection {
     public static Connection getConnection() {
         Connection connection = null;
         try {
-            // Load the MySQL JDBC driver
-            // This line is essential for the driver to be recognized
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(JDBC_URL, JDBC_USERNAME, JDBC_PASSWORD);
         } catch (ClassNotFoundException e) {
-            System.err.println("MySQL JDBC Driver not found. Make sure mysql-connector-java.jar is in your classpath.");
+            System.err.println("MySQL JDBC Driver not found.");
             e.printStackTrace();
         } catch (SQLException e) {
             System.err.println("Database connection failed: " + e.getMessage());
