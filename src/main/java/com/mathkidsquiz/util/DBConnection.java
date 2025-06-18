@@ -12,10 +12,9 @@ import java.sql.SQLException;
  */
 public class DBConnection {
 
-    // Database credentials - MAKE SURE TO UPDATE THESE!
     private static final String JDBC_URL = System.getenv("JDBC_URL");
-    private static final String JDBC_USERNAME = System.getenv("DB_USER"); // Your MySQL username
-    private static final String JDBC_PASSWORD = System.getenv("DB_PASS"); // Your MySQL password
+    private static final String JDBC_USERNAME = System.getenv("DB_USER"); 
+    private static final String JDBC_PASSWORD = System.getenv("DB_PASS");
     
     public static Connection getConnection() {
         Connection connection = null;
